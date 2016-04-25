@@ -1,0 +1,36 @@
+namespace InheritanceCRC
+{
+    public partial class Form1 : Form
+    {
+        List<Student> stuList;
+        Student a;
+        StudentEmployee b;
+
+        public Form1()
+        {
+            InitializeComponent();          
+        }
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            stuList = new List<Student>();
+            a = new Student("Colby", "Carrillo", "CIS", studYear.Senior);
+            stuList.Add(a);
+            a = new Student("Bob", "Jones", "Accounting", studYear.Junior);
+            stuList.Add(a);
+            a = new Student("Jimmy", "Genkins", "Biology", studYear.Freshman);
+            stuList.Add(a);
+            b = new StudentEmployee("James", "Wilcomb", "SCM", studYear.Junior, 25, "SCMD", "James Jones");
+            stuList.Add(b);
+            b = new StudentEmployee("Jonnie", "Facobs", "Algebra", studYear.Sophmore, 15, "Math", "Charles H.");
+            stuList.Add(b);
+            b = new StudentEmployee("Albert", "Alegator", "Music", studYear.Freshman, 7.5f, "Band", "General Alice");
+            stuList.Add(b);
+
+            stuList.Sort();
+
+            listBox1.DataSource = stuList;
+        }
+    }
+}
