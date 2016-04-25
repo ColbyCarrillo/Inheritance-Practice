@@ -1,0 +1,40 @@
+namespace InheritanceCRC
+{
+    public enum studYear { Freshman = 0, Sophmore = 1, Junior = 2, Senior = 3 }
+
+    public class Student : IComparable<Student>
+    {
+        public Student()
+        {
+
+        }
+        public Student(string fn, string ln, string maj, studYear sr)
+        {
+            this.FirstName = fn;
+            this.LastName = ln;
+            this.Major = maj;
+            this.YearInSchool = sr;
+        }
+
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Major { get; set; }
+        public studYear YearInSchool { get; set; }
+
+        public int CompareTo(Student other)
+        {
+            if (this.YearInSchool.CompareTo(other.YearInSchool) == 0)
+            {
+                return this.LastName.CompareTo(other.LastName);       
+            }
+            else
+            {
+                return this.YearInSchool.CompareTo(other.YearInSchool);
+            }                       
+        }
+       
+
+        public override string ToString()
+        {
+            return LastName + ", " + FirstName +" " + YearInSchool.ToString();
+        }
