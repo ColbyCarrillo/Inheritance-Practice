@@ -1,0 +1,36 @@
+namespace InheritanceCRC
+{
+    class StudentEmployee : Student
+    {
+        public StudentEmployee()
+        {
+        }
+    
+        public StudentEmployee(string fn, string ln, string maj, studYear sr, float pr, string dept, string sup) 
+            : base(fn,ln,maj,sr)
+        {      
+            this.PayRate = pr;
+            this.Deaprment = dept;
+            this.Supervisor = sup;
+        }
+
+        public float PayRate { get; set; }
+        public string Deaprment { get; set; }
+        public string Supervisor { get; set; }
+        private float _hoursWorked;
+
+        public void AddHoursWorked(float a)
+        {
+            _hoursWorked += a;
+        }
+
+        public float GetPay()
+        {
+            return PayRate * _hoursWorked;
+        }
+        public override string ToString()
+        {
+            return base.ToString() + ' ' + PayRate + ' ' + Deaprment + ' ' + Supervisor;
+        }
+    }
+}
